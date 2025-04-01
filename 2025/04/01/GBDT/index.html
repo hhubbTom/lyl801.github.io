@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/01/GBDT/image%201.png">
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/01/GBDT/image2.png">
 <meta property="article:published_time" content="2025-04-01T04:55:17.000Z">
-<meta property="article:modified_time" content="2025-04-01T05:39:48.272Z">
+<meta property="article:modified_time" content="2025-04-01T05:53:09.457Z">
 <meta property="article:author" content="YeLei Liu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/01/GBDT/image.png">
@@ -288,7 +288,7 @@
 <li>每次都以当前预测为基准，下一个弱分类器去拟合误差函数（上一次的误差值）对预测值的残差（预测值与真实值之间的误差）。</li>
 <li>GBDT的弱分类器使用的是树模型（第一张图）。</li>
 </ul>
-<p><img src="image2.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="image2.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image 2"></p>
 <p>用GBDT去预测年龄：</p>
 <p>第一个弱分类器（第一棵树）预测一个年龄（如20岁），计算发现误差有10岁；<br>第二棵树预测拟合残差，预测值6，计算发现差距还有4岁；<br>第三棵树继续预测拟合残差，预测值3，发现差距只有1岁了；<br>第四课树用1岁拟合剩下的残差，完成。<br>最终，四棵树的结论加起来，得到30岁这个标注答案（实际工程实现里，GBDT是计算负梯度，用负梯度近似残差）。</p>
 <p>![image.png](image 3.png)</p>
