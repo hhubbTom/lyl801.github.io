@@ -19,12 +19,12 @@
   <meta name="author" content="Lyl">
   <meta name="keywords" content="">
   
-    <meta name="description" content="四例：第一个字母代表预测是否正确，第二个字母代表预测结果 真正例——TP，真负例——TN，假正例——FP，假负例——FN 精确率、召回率、准确率精确率：预测为正例里面有多少实际也是正例，公式为TP&#x2F;TP+FP，实际比预测 召回率：实际正例有多少被预测正确，公式为TP&#x2F;TP+FN，预测比实际 准确率：所有例子被预测正确的概率，公式为TP+TN&#x2F;TP+TN+FP+FN R">
+    <meta name="description" content="四例：第一个字母代表预测是否正确，第二个字母代表预测结果 真正例——TP，真负例——TN，假正例——FP，假负例——FN 精确率、召回率、准确率精确率：预测为正例里面有多少实际也是正例，公式为TP&#x2F;TP+FP，实际比预测 召回率：实际正例有多少被预测正确，公式为TP&#x2F;TP+FN，预测比实际 准确率：所有例子被预测正确的概率，公式为TP+TN&#x2F;TP+TN+FP+FN ROC和AUCROC：ROC曲线">
 <meta property="og:type" content="article">
 <meta property="og:title" content="精确率、召回率、准确率、AUC、ROC">
 <meta property="og:url" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E5%87%86%E7%A1%AE%E7%8E%87%E3%80%81AUC%E3%80%81ROC/index.html">
 <meta property="og:site_name" content="Lyl">
-<meta property="og:description" content="四例：第一个字母代表预测是否正确，第二个字母代表预测结果 真正例——TP，真负例——TN，假正例——FP，假负例——FN 精确率、召回率、准确率精确率：预测为正例里面有多少实际也是正例，公式为TP&#x2F;TP+FP，实际比预测 召回率：实际正例有多少被预测正确，公式为TP&#x2F;TP+FN，预测比实际 准确率：所有例子被预测正确的概率，公式为TP+TN&#x2F;TP+TN+FP+FN R">
+<meta property="og:description" content="四例：第一个字母代表预测是否正确，第二个字母代表预测结果 真正例——TP，真负例——TN，假正例——FP，假负例——FN 精确率、召回率、准确率精确率：预测为正例里面有多少实际也是正例，公式为TP&#x2F;TP+FP，实际比预测 召回率：实际正例有多少被预测正确，公式为TP&#x2F;TP+FN，预测比实际 准确率：所有例子被预测正确的概率，公式为TP+TN&#x2F;TP+TN+FP+FN ROC和AUCROC：ROC曲线">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E5%87%86%E7%A1%AE%E7%8E%87%E3%80%81AUC%E3%80%81ROC/image.png">
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E5%87%86%E7%A1%AE%E7%8E%87%E3%80%81AUC%E3%80%81ROC/image%201.png">
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          921 字
+          915 字
         
       </span>
     
@@ -291,10 +291,10 @@
                 
                 <p>四例：第一个字母代表预测是否正确，第二个字母代表预测结果</p>
 <p>真正例——TP，真负例——TN，假正例——FP，假负例——FN</p>
-<h3 id="精确率、召回率、准确率"><a href="#精确率、召回率、准确率" class="headerlink" title="精确率、召回率、准确率"></a>精确率、召回率、准确率</h3><p><strong>精确率</strong>：预测为正例里面有多少实际也是正例，公式为TP&#x2F;TP+FP，实际比预测</p>
-<p><strong>召回率</strong>：实际正例有多少被预测正确，公式为TP&#x2F;TP+FN，预测比实际</p>
-<p><strong>准确率</strong>：所有例子被预测正确的概率，公式为TP+TN&#x2F;TP+TN+FP+FN</p>
-<h3 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h3><p><strong>ROC</strong>：ROC曲线是一种用于表示分类模型性能的图形工具。它将**真阳性率（True Positive Rate，TPR）<strong>和</strong>假阳性率（False Positive Rate，FPR）**作为横纵坐标来描绘分类器在不同阈值下的性能。</p>
+<h3 id="精确率、召回率、准确率"><a href="#精确率、召回率、准确率" class="headerlink" title="精确率、召回率、准确率"></a>精确率、召回率、准确率</h3><p><strong>精确率</strong>：预测为正例里面有多少实际也是正例，公式为TP/TP+FP，实际比预测</p>
+<p><strong>召回率</strong>：实际正例有多少被预测正确，公式为TP/TP+FN，预测比实际</p>
+<p><strong>准确率</strong>：所有例子被预测正确的概率，公式为TP+TN/TP+TN+FP+FN</p>
+<h3 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h3><p><strong>ROC</strong>：ROC曲线是一种用于表示分类模型性能的图形工具。它将<strong>真阳性率（True Positive Rate，TPR）</strong>和<strong>假阳性率（False Positive Rate，FPR）</strong>作为横纵坐标来描绘分类器在不同阈值下的性能。</p>
 <p><img src="image.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image.png"></p>
 <p><strong>真阳性率</strong>：即上面的召回率，代表所有实际阳性例中被检测出来的比率（1-漏诊率），越接近1越好</p>
 <p><img src="image%201.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image.png"></p>
@@ -319,7 +319,7 @@
 <p><strong>依据定义计算AUC的步骤</strong>：</p>
 <p>1、排序样本：将测试集中的样本按照模型预测的“正类概率”从高到低排序。</p>
 <p>2、统计正负样本对：对正-负样本对，<strong>正样本预测概率高于负样本，则记为1个正确对</strong>，相等则记为0.5个正确对。</p>
-<p>3、计算AUC：AUC的物理意义是随机选择一个正样本和一个负样本，模型对正样本预测概率高于负样本（相对顺序正确）的概率，AUC&#x3D;正确对数量&#x2F;总正负样本对数量，总正负样本对数量&#x3D;正样本数量×负样本数量。</p>
+<p>3、计算AUC：AUC的物理意义是随机选择一个正样本和一个负样本，模型对正样本预测概率高于负样本（相对顺序正确）的概率，AUC=正确对数量/总正负样本对数量，总正负样本对数量=正样本数量×负样本数量。</p>
 <p><strong>手撕AUC</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#AUC 手撕</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">AUC</span>(<span class="hljs-params">label, pre</span>):<br><span class="hljs-comment">#计算正样本和负样本的索引，以便索引出之后的概率值</span><br>    pos = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(label)) <span class="hljs-keyword">if</span> label[i] == <span class="hljs-number">1</span>]<br>    neg = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(label)) <span class="hljs-keyword">if</span> label[i] == <span class="hljs-number">0</span>]<br>    auc = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> pos:<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> neg:<br>            <span class="hljs-keyword">if</span> pre[i] &gt; pre[j]:<br>                auc += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">elif</span> pre[i] == pre[j]:<br>                auc += <span class="hljs-number">0.5</span><br>    <span class="hljs-keyword">return</span> auc / (<span class="hljs-built_in">len</span>(pos)*<span class="hljs-built_in">len</span>(neg))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    label = [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]<br>    pre = [<span class="hljs-number">0.9</span>, <span class="hljs-number">0.8</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.9</span>, <span class="hljs-number">0.66</span>, <span class="hljs-number">0.7</span>]<br>    <span class="hljs-built_in">print</span>(AUC(label, pre))<br></code></pre></td></tr></table></figure>
 
@@ -413,12 +413,6 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="../Attention-Transformer/" title="Attention-Transformer">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Attention-Transformer</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
