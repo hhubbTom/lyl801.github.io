@@ -19,12 +19,12 @@
   <meta name="author" content="Lyl">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Attention-Transformer&#x2F;基础理论attention机制 三要素：查询、键、值，查询和键生成权重（值的重要性），与对应值相乘，再汇总得到输出。 三要素的现实含义：查询相当于（自己的）需求，键相当于需求对应的（对方的）条件，查询乘键就是反映需求和条件的契合度，值就是最终显式化展现出的情况，即应用查询和键的契合度（权重）。 缩放点积：要求查询和键长度相同。  多头注意力当给">
+    <meta name="description" content="Attention-Transformer基础理论attention机制 三要素：查询、键、值，查询和键生成权重（值的重要性），与对应值相乘，再汇总得到输出。 三要素的现实含义：查询相当于（自己的）需求，键相当于需求对应的（对方的）条件，查询乘键就是反映需求和条件的契合度，值就是最终显式化展现出的情况，即应用查询和键的契合度（权重）。 缩放点积：要求查询和键长度相同。  多头注意力当给定相同的查询">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Attention-Transformer&#x2F;">
+<meta property="og:title" content="Attention-Transformer">
 <meta property="og:url" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/index.html">
 <meta property="og:site_name" content="Lyl">
-<meta property="og:description" content="Attention-Transformer&#x2F;基础理论attention机制 三要素：查询、键、值，查询和键生成权重（值的重要性），与对应值相乘，再汇总得到输出。 三要素的现实含义：查询相当于（自己的）需求，键相当于需求对应的（对方的）条件，查询乘键就是反映需求和条件的契合度，值就是最终显式化展现出的情况，即应用查询和键的契合度（权重）。 缩放点积：要求查询和键长度相同。  多头注意力当给">
+<meta property="og:description" content="Attention-Transformer基础理论attention机制 三要素：查询、键、值，查询和键生成权重（值的重要性），与对应值相乘，再汇总得到输出。 三要素的现实含义：查询相当于（自己的）需求，键相当于需求对应的（对方的）条件，查询乘键就是反映需求和条件的契合度，值就是最终显式化展现出的情况，即应用查询和键的契合度（权重）。 缩放点积：要求查询和键长度相同。  多头注意力当给定相同的查询">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/image.png">
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/image%201.png">
@@ -39,14 +39,14 @@
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/554f08a03c8fea992555094d9049e51.jpg">
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/0d2badcfe64167cfa040c6372f76bfc.jpg">
 <meta property="article:published_time" content="2025-04-04T06:24:49.000Z">
-<meta property="article:modified_time" content="2025-04-04T06:28:32.507Z">
+<meta property="article:modified_time" content="2025-04-04T06:32:23.560Z">
 <meta property="article:author" content="Lyl">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/image.png">
   
   
   
-  <title>Attention-Transformer/ - Lyl</title>
+  <title>Attention-Transformer - Lyl</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +212,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Attention-Transformer/"></span>
+            <span id="subtitle" data-typed-text="Attention-Transformer"></span>
           
         </div>
 
@@ -288,12 +288,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Attention-Transformer/</h1>
+            <h1 id="seo-header">Attention-Transformer</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Attention-Transformer"><a href="#Attention-Transformer" class="headerlink" title="Attention-Transformer&#x2F;"></a>Attention-Transformer&#x2F;</h1><h2 id="基础理论"><a href="#基础理论" class="headerlink" title="基础理论"></a>基础理论</h2><h3 id="attention机制"><a href="#attention机制" class="headerlink" title="attention机制"></a><strong>attention机制</strong></h3><p><img src="image.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image.png"></p>
+                <h1 id="Attention-Transformer"><a href="#Attention-Transformer" class="headerlink" title="Attention-Transformer"></a>Attention-Transformer</h1><h2 id="基础理论"><a href="#基础理论" class="headerlink" title="基础理论"></a>基础理论</h2><h3 id="attention机制"><a href="#attention机制" class="headerlink" title="attention机制"></a><strong>attention机制</strong></h3><p><img src="image.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image.png"></p>
 <p>三要素：查询、键、值，查询和键生成权重（值的重要性），与对应值相乘，再汇总得到输出。</p>
 <p>三要素的现实含义：查询相当于（自己的）需求，键相当于需求对应的（对方的）条件，查询乘键就是反映需求和条件的契合度，值就是最终显式化展现出的情况，即应用查询和键的契合度（权重）。</p>
 <p>缩放点积：要求查询和键长度相同。</p>
@@ -586,7 +586,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Attention-Transformer/</div>
+      <div>Attention-Transformer</div>
       <div>https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/</div>
     </div>
     <div class="license-meta">
