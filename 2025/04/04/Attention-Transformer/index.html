@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/554f08a03c8fea992555094d9049e51.jpg">
 <meta property="og:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/0d2badcfe64167cfa040c6372f76bfc.jpg">
 <meta property="article:published_time" content="2025-04-04T06:24:49.000Z">
-<meta property="article:modified_time" content="2025-04-04T06:32:23.560Z">
+<meta property="article:modified_time" content="2025-04-04T06:34:55.393Z">
 <meta property="article:author" content="Lyl">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://github.com/hhubbTom/hhubbTom.github.io/2025/04/04/Attention-Transformer/image.png">
@@ -344,11 +344,11 @@
 <h3 id="1-6-Encoder-与-Decoder-之间如何进行数据传输？"><a href="#1-6-Encoder-与-Decoder-之间如何进行数据传输？" class="headerlink" title="1.6 Encoder 与 Decoder 之间如何进行数据传输？"></a><strong>1.6 Encoder 与 Decoder 之间如何进行数据传输？</strong></h3><p>Decoder的Masked多头注意力模块输出作为查询，Encoder 模块的输出作为 Decoder 的键和值，经过 Encoder-Decoder Attention 模块，帮助 Decoder 关注输入序列中与当前目标位置相关的信息。</p>
 <h3 id="1-7-介绍残差连接及其作用"><a href="#1-7-介绍残差连接及其作用" class="headerlink" title="1.7 介绍残差连接及其作用"></a><strong>1.7 介绍残差连接及其作用</strong></h3><p>残差连接是一种结构优化方法，在Transformer中，残差连接将模块的输入与输出相加后再进行层归一化（LayerNorm）。</p>
 <p>残差连接的作用：</p>
-<p>**（1）防止梯度消失：**在深层网络中，梯度在反向传播过程中可能会逐层衰减，导致梯度消失，影响训练。残差连接允许梯度直接从后面几层传播回前面几层，避免梯度信息在中间层丢失，从而缓解梯度消失问题，帮助深层模型更稳定地训练。</p>
-<p>**（2）保留原始输入信息：**残差连接直接将输入信息传递到当前层的输出，确保模型在优化时不会丢失原始输入特征。这种机制可以让模型在学习复杂特征时，不会完全忽略输入的低级特征，从而提高模型的表达能力。</p>
-<p>**（3）加速训练收敛：**残差连接使得每一层学习的是一个 <strong>残差函数</strong>（即偏离恒等映射的部分），而不是直接学习复杂的非线性变换。通过这种方式，每一层只需要学习相对于输入的小变化，降低了学习难度，加速了模型的收敛。</p>
-<p>**（4）防止退化问题：**在深度网络中，随着网络层数的增加，模型性能可能会出现退化现象（即增加网络层数反而导致性能下降）。残差连接通过直接传递输入，避免了深层网络中的退化问题，使得 Transformer 可以堆叠更多层，提高模型的表达能力。</p>
-<p>**（5）便于特征融合：**残差连接将每一层的输入特征与经过多头注意力机制或前馈网络处理后的输出特征相加。这种特征融合方式，可以帮助模型有效组合不同层次的特征表示，捕捉更丰富的语义信息。</p>
+<p><strong>（1）防止梯度消失</strong>：在深层网络中，梯度在反向传播过程中可能会逐层衰减，导致梯度消失，影响训练。残差连接允许梯度直接从后面几层传播回前面几层，避免梯度信息在中间层丢失，从而缓解梯度消失问题，帮助深层模型更稳定地训练。</p>
+<p><strong>（2）保留原始输入信息</strong>：残差连接直接将输入信息传递到当前层的输出，确保模型在优化时不会丢失原始输入特征。这种机制可以让模型在学习复杂特征时，不会完全忽略输入的低级特征，从而提高模型的表达能力。</p>
+<p><strong>（3）加速训练收敛</strong>：残差连接使得每一层学习的是一个 <strong>残差函数</strong>（即偏离恒等映射的部分），而不是直接学习复杂的非线性变换。通过这种方式，每一层只需要学习相对于输入的小变化，降低了学习难度，加速了模型的收敛。</p>
+<p><strong>（4）防止退化问题</strong>：在深度网络中，随着网络层数的增加，模型性能可能会出现退化现象（即增加网络层数反而导致性能下降）。残差连接通过直接传递输入，避免了深层网络中的退化问题，使得 Transformer 可以堆叠更多层，提高模型的表达能力。</p>
+<p><strong>（5）便于特征融合</strong>：残差连接将每一层的输入特征与经过多头注意力机制或前馈网络处理后的输出特征相加。这种特征融合方式，可以帮助模型有效组合不同层次的特征表示，捕捉更丰富的语义信息。</p>
 <h3 id="1-8-Transformer使用什么激活函数？为什么？"><a href="#1-8-Transformer使用什么激活函数？为什么？" class="headerlink" title="1.8 Transformer使用什么激活函数？为什么？"></a><strong>1.8 Transformer使用什么激活函数？为什么？</strong></h3><p>采用GELU激活函数，它是一种平滑的，具有连续性导数的激活函数，形式上近似高斯分布，有助于减少梯队消失和提高网络标识能力，加快收敛速度。GELU的公式为x·P(X≤x)，其中x是均值为0，方差为1的高斯随机变量。</p>
 <h2 id="2-Attention"><a href="#2-Attention" class="headerlink" title="2. Attention"></a><strong>2. Attention</strong></h2><h3 id="2-1-介绍-Attention-机制和公式"><a href="#2-1-介绍-Attention-机制和公式" class="headerlink" title="2.1 介绍 Attention 机制和公式"></a><strong>2.1 介绍 Attention 机制和公式</strong></h3><p>Attention 的核心思想是计算序列中每个位置的重要性分数，公式为：</p>
 <p><img src="image%207.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image.png"></p>
@@ -366,19 +366,10 @@
 <h3 id="2-7-为什么-Attention-可以堆叠多层，有什么作用？"><a href="#2-7-为什么-Attention-可以堆叠多层，有什么作用？" class="headerlink" title="2.7 为什么 Attention 可以堆叠多层，有什么作用？"></a><strong>2.7 为什么 Attention 可以堆叠多层，有什么作用？</strong></h3><p>多层 Attention允许每一层逐步<strong>提取和融合更高阶的特征表示</strong>，进而提高模型的表达能力和性能，<strong>捕获更深的关系</strong>，提升模型泛化能力。其中，残差连接+层规范化为Attention堆叠多层提供了保证。</p>
 <h3 id="2-8-Decoder-中的-Mask-Attention-如何实现-mask？mask有哪些作用？"><a href="#2-8-Decoder-中的-Mask-Attention-如何实现-mask？mask有哪些作用？" class="headerlink" title="2.8 Decoder 中的 Mask Attention 如何实现 mask？mask有哪些作用？"></a><strong>2.8 Decoder 中的 Mask Attention 如何实现 mask？mask有哪些作用？</strong></h3><p>在计算Attention分数时，将被填充为0的Mask位置给一个负无穷的数，使得Softmax输出为零。</p>
 <p>作用：使当前token的生成只依赖过去生成的token，保持自回归属性，防止未来信息泄露；在序列填充补齐时mask，使被填充的位置权重为0，避免无关信息参与attention的运算，使计算更高效；保证attention的局部性，token的交融是有限的。</p>
-<h3 id="2-9-手写Attention代码？"><a href="#2-9-手写Attention代码？" class="headerlink" title="2.9 手写Attention代码？"></a><strong>2.9 手写Attention代码？</strong></h3><p>def attention(query, key, value, mask&#x3D;None, dropout&#x3D;None)</p>
-<p>d_k &#x3D; query.size(-1)</p>
-<p>scores &#x3D; torch.matmul(query, key.transpose(-2, -1))&#x2F;sqrt(d_k)</p>
-<p>if mask is not None:</p>
-<p>scores &#x3D; scores.masked_fill(mask&#x3D;&#x3D;0, -1e9)</p>
-<p>att_weight &#x3D; torch.softmax(scores, dim &#x3D; -1)</p>
-<p>if dropout is not None:</p>
-<p>att_weight &#x3D; dropout(att_weight)</p>
-<p>att_value &#x3D; torch.matmul(att_weight, value)</p>
-<p>return att_weight, att_value</p>
-<h3 id="2-10-Attention计算自注意力机制用softmax函数有什么不合理之处？"><a href="#2-10-Attention计算自注意力机制用softmax函数有什么不合理之处？" class="headerlink" title="2.10 Attention计算自注意力机制用softmax函数有什么不合理之处？"></a>2.10 Attention计算自注意力机制用softmax函数有什么不合理之处？</h3><p>**（1）对大数值的敏感性：**Softmax对输入的数值范围非常敏感。当注意力得分（如点积得分）数值非常大或非常小的时候，softmax可能会导致梯度消失或梯度爆炸，影响模型的稳定和训练效率。</p>
+<h3 id="2-9-手写Attention代码？"><a href="#2-9-手写Attention代码？" class="headerlink" title="2.9 手写Attention代码？"></a><strong>2.9 手写Attention代码？</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">attention</span>(<span class="hljs-params">query, key, value, mask=<span class="hljs-literal">None</span>, dropout=<span class="hljs-literal">None</span></span>):<br><br>d_k = query.size(-<span class="hljs-number">1</span>)<br>scores = torch.matmul(query, key.transpose(-<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>))/sqrt(d_k)<br><br><span class="hljs-keyword">if</span> mask <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>scores = scores.masked_fill(mask==<span class="hljs-number">0</span>, -<span class="hljs-number">1e9</span>)<br>att_weight = torch.softmax(scores, dim = -<span class="hljs-number">1</span>)<br><br><span class="hljs-keyword">if</span> dropout <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>att_weight = dropout(att_weight)<br>att_value = torch.matmul(att_weight, value)<br><br><span class="hljs-keyword">return</span> att_weight, att_value<br></code></pre></td></tr></table></figure>
+<h3 id="2-10-Attention计算自注意力机制用softmax函数有什么不合理之处？"><a href="#2-10-Attention计算自注意力机制用softmax函数有什么不合理之处？" class="headerlink" title="2.10 Attention计算自注意力机制用softmax函数有什么不合理之处？"></a>2.10 Attention计算自注意力机制用softmax函数有什么不合理之处？</h3><p><strong>（1）对大数值的敏感性</strong>：Softmax对输入的数值范围非常敏感。当注意力得分（如点积得分）数值非常大或非常小的时候，softmax可能会导致梯度消失或梯度爆炸，影响模型的稳定和训练效率。</p>
 <p><strong>（2）计算复杂度</strong>：在计算自注意力时，对于每个输入的向量都需要计算一对一的注意力得分并应用softmax，这会导致计算复杂度较高，尤其是当序列长度很大时。Softmax操作需要对每个序列的所有位置计算指数和归一化，复杂度为O(N^2)，其中N是序列的长度。</p>
-<p>**（3）精度损失：**由于softmax在数值较大或较小时的溢出或下溢问题，可能会导致计算精度的损失。尤其是在处理长序列时，这种数值不稳定性可能会影响模型的性能。</p>
+<p><strong>（3）精度损失</strong>：由于softmax在数值较大或较小时的溢出或下溢问题，可能会导致计算精度的损失。尤其是在处理长序列时，这种数值不稳定性可能会影响模型的性能。</p>
 <p><strong>（4）硬性归一化</strong>：Softmax强制要求所有注意力权重和为1，这使得模型可能会过于依赖某些特定的输入部分，即使这些部分实际上并不重要。对于一些任务，可能不需要对所有注意力权重进行严格归一化，某些方法（如稀疏注意力）尝试引入更多灵活性。</p>
 <p><strong>（5）难以捕捉长距离依赖</strong>：尽管自注意力机制可以捕捉任意两个位置之间的依赖关系，但softmax的归一化方式可能使得远距离的依赖关系相对较弱，因为它们的注意力得分通常会较小，而被近距离的得分压制。因此，有时模型在长序列中的表现不如在较短序列中好。</p>
 <h3 id="2-11-计算Attention-为什么是用点乘而不是加法？"><a href="#2-11-计算Attention-为什么是用点乘而不是加法？" class="headerlink" title="2.11 计算Attention 为什么是用点乘而不是加法？"></a><strong>2.11 计算Attention 为什么是用点乘而不是加法？</strong></h3><p>（1）点乘作为注意力权重计算时效率更高，虽然矩阵加法计算上更简单，但计算注意力权重时需要考虑所有可能的键和查询的匹配情况，计算量仍然很大，而点乘可以通过矩阵乘法高效实现这一过程。在大规模数据和复杂模型下，点乘具有比加法更好的性能。</p>
@@ -407,54 +398,54 @@
 <p>pos 表示位置，i 表示当前向量的维度索引，dmodel​ 是向量的维度大小。</p>
 <p>位置编码是一个固定的矩阵，不需要训练。</p>
 <p>编码向量维度与嵌入向量一致（dmodel​），方便与嵌入向量相加。</p>
-<p><strong>实现步骤：</strong></p>
+<p><strong>实现步骤</strong>：</p>
 <ol>
 <li>对每个位置生成一组正弦和余弦值。</li>
 <li>偶数维度使用正弦函数，奇数维度使用余弦函数。</li>
 <li>编码结果与输入嵌入相加后送入 Transformer 网络。</li>
 </ol>
 <h3 id="4-3-为什么使用三角函数作为位置编码函数？"><a href="#4-3-为什么使用三角函数作为位置编码函数？" class="headerlink" title="4.3 为什么使用三角函数作为位置编码函数？"></a><strong>4.3 为什么使用三角函数作为位置编码函数？</strong></h3><ol>
-<li><strong>捕获相对位置信息：</strong><ul>
+<li><strong>捕获相对位置信息</strong>：<ul>
 <li>三角函数的周期性和连续性使得不同位置之间的距离信息通过编码自然体现。</li>
 <li>例如，两个位置的编码之间的点积会随位置差的变化有一定规律性，模型可以通过简单操作学习相对位置关系。</li>
 </ul>
 </li>
-<li><strong>无需训练：</strong><ul>
+<li><strong>无需训练</strong>：<ul>
 <li>正余弦函数生成的位置编码是固定的，不依赖训练，减少了模型参数。</li>
 </ul>
 </li>
-<li><strong>通用性强：</strong><ul>
+<li><strong>通用性强</strong>：<ul>
 <li>三角函数的数学性质（如加法公式）使得编码具有一定的对称性和可泛化性，能很好地嵌入输入序列的位置信息。</li>
 </ul>
 </li>
 </ol>
-<h3 id="4-4-Transformer-中原始的位置编码有何优缺点？"><a href="#4-4-Transformer-中原始的位置编码有何优缺点？" class="headerlink" title="4.4 Transformer 中原始的位置编码有何优缺点？"></a><strong>4.4 Transformer 中原始的位置编码有何优缺点？</strong></h3><p><strong>优点：</strong></p>
+<h3 id="4-4-Transformer-中原始的位置编码有何优缺点？"><a href="#4-4-Transformer-中原始的位置编码有何优缺点？" class="headerlink" title="4.4 Transformer 中原始的位置编码有何优缺点？"></a><strong>4.4 Transformer 中原始的位置编码有何优缺点？</strong></h3><p><strong>优点</strong>：</p>
 <ol>
-<li><strong>无需训练参数：</strong> 使用固定函数生成位置编码，节省了模型的训练资源。</li>
-<li><strong>捕获相对位置关系：</strong> 三角函数的规律性能够隐式表示序列中的相对位置。</li>
-<li><strong>简单易用：</strong> 正余弦编码与嵌入向量直接相加，无需额外操作。</li>
+<li><strong>无需训练参数</strong>： 使用固定函数生成位置编码，节省了模型的训练资源。</li>
+<li><strong>捕获相对位置关系</strong>： 三角函数的规律性能够隐式表示序列中的相对位置。</li>
+<li><strong>简单易用</strong>： 正余弦编码与嵌入向量直接相加，无需额外操作。</li>
 </ol>
-<p><strong>缺点：</strong></p>
+<p><strong>缺点</strong>：</p>
 <ol>
-<li><strong>固定编码：</strong> 对所有任务都使用相同的固定编码，可能限制模型对某些任务的优化能力。</li>
-<li><strong>不灵活：</strong> 不能动态调整，无法直接适应变长序列或局部特征更重要的场景。</li>
-<li><strong>对长序列性能不足：</strong> 当序列长度非常大时，高维位置编码可能不足以捕捉远距离依赖。</li>
+<li><strong>固定编码</strong>： 对所有任务都使用相同的固定编码，可能限制模型对某些任务的优化能力。</li>
+<li><strong>不灵活</strong>： 不能动态调整，无法直接适应变长序列或局部特征更重要的场景。</li>
+<li><strong>对长序列性能不足</strong>： 当序列长度非常大时，高维位置编码可能不足以捕捉远距离依赖。</li>
 </ol>
 <h3 id="4-5-介绍-Transformer-中常用的位置编码方法及优缺点"><a href="#4-5-介绍-Transformer-中常用的位置编码方法及优缺点" class="headerlink" title="4.5 介绍 Transformer 中常用的位置编码方法及优缺点"></a><strong>4.5 介绍 Transformer 中常用的位置编码方法及优缺点</strong></h3><p>除了原始的正余弦位置编码，Transformer 中还使用了多种位置编码方法，包括 <strong>可训练位置编码</strong> 和 <strong>相对位置编码</strong>。</p>
 <ol>
-<li><strong>固定位置编码（正余弦编码）：</strong><ul>
+<li><strong>固定位置编码（正余弦编码）</strong>：<ul>
 <li><strong>描述</strong>：使用正余弦函数生成位置编码，位置信息固定。</li>
 <li><strong>优点</strong>：简单高效，无需额外训练。</li>
 <li><strong>缺点</strong>：缺乏灵活性，不能动态调整。</li>
 </ul>
 </li>
-<li><strong>可训练的位置编码：</strong><ul>
+<li><strong>可训练的位置编码</strong>：<ul>
 <li><strong>描述</strong>：位置编码不再固定，而是像嵌入向量一样作为可训练参数。</li>
 <li><strong>优点</strong>：更加灵活，能够针对不同任务学习最优的位置信息表示。</li>
 <li><strong>缺点</strong>：增加了模型参数，训练时可能引入过拟合风险。</li>
 </ul>
 </li>
-<li><strong>相对位置编码（Relative Position Encoding）：</strong><ul>
+<li><strong>相对位置编码（Relative Position Encoding）</strong>：<ul>
 <li><strong>描述</strong>：不直接表示位置，而是编码序列中位置间的相对距离。<ul>
 <li>如 Transformer-XL 和 T5 使用相对位置编码。</li>
 </ul>
@@ -467,13 +458,13 @@
 <li><strong>缺点</strong>：实现复杂性较高，可能增加计算开销。</li>
 </ul>
 </li>
-<li><strong>复合位置编码：</strong><ul>
+<li><strong>复合位置编码</strong>：<ul>
 <li><strong>描述</strong>：结合固定位置编码和可训练位置编码的优点，例如 DeBERTa 引入的混合方法。</li>
 <li><strong>优点</strong>：平衡了灵活性和泛化能力。</li>
 <li><strong>缺点</strong>：需要更复杂的模型设计。</li>
 </ul>
 </li>
-<li><strong>旋转位置编码（RoPE, Rotary Position Embedding）：</strong><ul>
+<li><strong>旋转位置编码（RoPE, Rotary Position Embedding）</strong>：<ul>
 <li><strong>描述</strong>：通过旋转变换将位置信息嵌入 Attention 计算中。</li>
 <li><strong>优点</strong>：<ol>
 <li>能够自然地捕捉相对位置信息。</li>
@@ -491,72 +482,72 @@
 <li>选择位置编码方法时需权衡计算复杂度、参数量和模型性能之间的关系。</li>
 </ul>
 <h2 id="5-NLP-Transformer-vs-RNN"><a href="#5-NLP-Transformer-vs-RNN" class="headerlink" title="5. NLP: Transformer vs RNN"></a>5. NLP: Transformer vs RNN</h2><h3 id="5-1-Transformer-相比于-RNN-的优势是什么？"><a href="#5-1-Transformer-相比于-RNN-的优势是什么？" class="headerlink" title="5.1 Transformer 相比于 RNN 的优势是什么？"></a><strong>5.1 Transformer 相比于 RNN 的优势是什么？</strong></h3><ol>
-<li><p><strong>高效的并行计算：</strong></p>
+<li><p><strong>高效的并行计算</strong>：</p>
 <p> （1）RNN 由于其序列依赖性，无法并行处理输入序列，处理长序列时效率低。</p>
 <p> （2）Transformer 使用自注意力机制（Self-Attention）代替序列依赖，所有输入可以同时处理，多头的多组attention也能同时计算，大大提升了计算效率。</p>
 </li>
-<li><p><strong>捕捉长距离依赖：</strong></p>
+<li><p><strong>捕捉长距离依赖</strong>：</p>
 <p> （1）RNN 只能逐步传播信息，导致长序列中的远距离依赖难以捕捉（如梯度消失）。</p>
 <p> （2）Transformer 的注意力机制可以直接在任意两个位置间计算权重，天然适合处理长距离依赖。</p>
 </li>
-<li><p><strong>性能更优：</strong></p>
+<li><p><strong>性能更优</strong>：</p>
 <p> Transformer 模型可以在更大的数据集上训练，参数更丰富，效果优于 RNN。</p>
 </li>
-<li><p><strong>更容易扩展：</strong></p>
+<li><p><strong>更容易扩展</strong>：</p>
 <p> RNN 和 LSTM 在处理非常长的序列时效果下降，而 Transformer 可以很好地扩展到超长序列（如 GPT-4 处理 8k 或更长的上下文）。</p>
 </li>
 </ol>
 <h3 id="5-2-Transformer-的并行计算体现在哪里？推理时是并行还是串行的？"><a href="#5-2-Transformer-的并行计算体现在哪里？推理时是并行还是串行的？" class="headerlink" title="5.2 Transformer 的并行计算体现在哪里？推理时是并行还是串行的？"></a><strong>5.2 Transformer 的并行计算体现在哪里？推理时是并行还是串行的？</strong></h3><ol>
-<li><p><strong>训练时：</strong></p>
-<p> <strong>训练是并行的：</strong></p>
+<li><p><strong>训练时</strong>：</p>
+<p> <strong>训练是并行的</strong>：</p>
 <p> （1）自注意力机制（Self-Attention）中，每个位置的向量可以同时计算所有其他位置的相关性（权重矩阵），即并行处理整个输入序列。</p>
 <p> （2）前馈网络中的运算（如矩阵乘法）也可以并行执行。</p>
 <p> （3）位置编码为固定的，不存在额外的依赖。</p>
 </li>
-<li><p><strong>推理时：</strong></p>
-<p> <strong>推理是串行的：</strong></p>
+<li><p><strong>推理时</strong>：</p>
+<p> <strong>推理是串行的</strong>：</p>
 <p> （1）在生成任务（如文本生成）中，Transformer 是自回归的（Autoregressive），当前时刻的输出依赖于之前的输出，因此推理是逐步生成的。</p>
 <p> （2）对于非生成任务（如分类或翻译），可以一次性并行计算整个序列。</p>
 </li>
 </ol>
 <h3 id="5-3-Transformer-为什么效果好？RNN-为什么效果不好？"><a href="#5-3-Transformer-为什么效果好？RNN-为什么效果不好？" class="headerlink" title="5.3 Transformer 为什么效果好？RNN 为什么效果不好？"></a><strong>5.3 Transformer 为什么效果好？RNN 为什么效果不好？</strong></h3><ol>
-<li><p><strong>Transformer 效果好的原因：</strong></p>
-<p> <strong>（1）自注意力机制：</strong> 直接建模全局依赖关系，避免了 RNN 的信息递归传播问题。</p>
-<p> <strong>（2）并行计算：</strong> 提高了效率，同时可以处理更大的数据。</p>
-<p> <strong>（3）强大的表达能力：</strong> 多层堆叠和多头注意力增强了特征提取能力。</p>
-<p> <strong>（4）规模化训练：</strong> Transformer 更容易扩展到超大规模模型（如 GPT-3&#x2F;4 和 BERT）。</p>
+<li><p><strong>Transformer 效果好的原因</strong>：</p>
+<p> <strong>（1）自注意力机制</strong>： 直接建模全局依赖关系，避免了 RNN 的信息递归传播问题。</p>
+<p> <strong>（2）并行计算</strong>： 提高了效率，同时可以处理更大的数据。</p>
+<p> <strong>（3）强大的表达能力</strong>： 多层堆叠和多头注意力增强了特征提取能力。</p>
+<p> <strong>（4）规模化训练</strong>： Transformer 更容易扩展到超大规模模型（如 GPT-3&#x2F;4 和 BERT）。</p>
 </li>
-<li><p><strong>RNN 效果不好的原因：</strong></p>
-<p> <strong>（1）梯度问题：</strong> 由于序列依赖，RNN 容易出现梯度消失或梯度爆炸，限制了学习能力。</p>
-<p> <strong>（2）长距离依赖：</strong> 随着序列长度增加，远距离信息难以传播。</p>
-<p> <strong>（3）效率低下：</strong> RNN 的序列化计算无法并行，限制了计算速度。</p>
+<li><p><strong>RNN 效果不好的原因</strong>：</p>
+<p> <strong>（1）梯度问题</strong>： 由于序列依赖，RNN 容易出现梯度消失或梯度爆炸，限制了学习能力。</p>
+<p> <strong>（2）长距离依赖</strong>： 随着序列长度增加，远距离信息难以传播。</p>
+<p> <strong>（3）效率低下</strong>： RNN 的序列化计算无法并行，限制了计算速度。</p>
 </li>
 </ol>
 <h3 id="5-4-NLP-任务中使用-RNN-和-Transformer-的区别是什么？"><a href="#5-4-NLP-任务中使用-RNN-和-Transformer-的区别是什么？" class="headerlink" title="5.4 NLP 任务中使用 RNN 和 Transformer 的区别是什么？"></a><strong>5.4 NLP 任务中使用 RNN 和 Transformer 的区别是什么？</strong></h3><p><img src="image%209.png" srcset="/hhubbTom/hhubbTom.github.io/img/loading.gif" lazyload alt="image.png"></p>
-<h3 id="5-5-RNN-为什么不需要使用位置编码？"><a href="#5-5-RNN-为什么不需要使用位置编码？" class="headerlink" title="5.5 RNN 为什么不需要使用位置编码？"></a><strong>5.5 RNN 为什么不需要使用位置编码？</strong></h3><p>**RNN 自带序列信息：**RNN 的递归结构天然保留了输入序列的顺序信息，每一步的隐藏状态 ht 是基于前一时刻 ht−1 和当前输入 xt 的，序列顺序隐式包含在计算过程中，时间维度本身就反映了输入序列的位置关系，因此不需要额外位置编码。</p>
+<h3 id="5-5-RNN-为什么不需要使用位置编码？"><a href="#5-5-RNN-为什么不需要使用位置编码？" class="headerlink" title="5.5 RNN 为什么不需要使用位置编码？"></a><strong>5.5 RNN 为什么不需要使用位置编码？</strong></h3><p><strong>RNN 自带序列信息</strong>：RNN 的递归结构天然保留了输入序列的顺序信息，每一步的隐藏状态 ht 是基于前一时刻 ht−1 和当前输入 xt 的，序列顺序隐式包含在计算过程中，时间维度本身就反映了输入序列的位置关系，因此不需要额外位置编码。</p>
 <h3 id="5-6-介绍-BERT-的网络结构？"><a href="#5-6-介绍-BERT-的网络结构？" class="headerlink" title="5.6 介绍 BERT 的网络结构？"></a><strong>5.6 介绍 BERT 的网络结构？</strong></h3><p><strong>BERT（Bidirectional Encoder Representations from Transformers）</strong> 是一种基于 Transformer 的双向编码模型，专注于自然语言理解任务。</p>
 <ol>
-<li><p><strong>总体结构：</strong></p>
+<li><p><strong>总体结构</strong>：</p>
 <p> （1）BERT 使用了 <strong>Transformer 编码器（Encoder）部分</strong>，由多层自注意力机制和前馈神经网络堆叠组成。</p>
 <p> （2）双向建模：通过 Masked Language Model（MLM），BERT 能够同时从左到右和从右到左学习上下文信息。</p>
 </li>
-<li><p><strong>关键组成部分：</strong></p>
-<p> <strong>（1）输入表示：</strong></p>
+<li><p><strong>关键组成部分</strong>：</p>
+<p> <strong>（1）输入表示</strong>：</p>
 <p> 输入由三部分组成：Token Embedding、Segment Embedding、Position Embedding，且输入序列长度固定（如 512）。</p>
-<p> <strong>（2）自注意力机制：</strong></p>
+<p> <strong>（2）自注意力机制</strong>：</p>
 <p> 多头注意力捕捉序列中全局信息。</p>
-<p> <strong>（3）前馈网络：</strong></p>
+<p> <strong>（3）前馈网络</strong>：</p>
 <p> 每层后接一个全连接层进行特征映射。</p>
-<p> <strong>（4）堆叠层数：</strong></p>
+<p> <strong>（4）堆叠层数</strong>：</p>
 <p> BERT-Base 有 12 层 Transformer 编码器，BERT-Large 有 24 层。</p>
 </li>
-<li><p><strong>训练目标：</strong></p>
-<p> <strong>（1）Masked Language Model（MLM）：</strong> 随机掩盖部分词，预测被掩盖的词。</p>
-<p> <strong>（2）Next Sentence Prediction（NSP）：</strong> 判断两个句子是否连续。</p>
+<li><p><strong>训练目标</strong>：</p>
+<p> <strong>（1）Masked Language Model（MLM）</strong>： 随机掩盖部分词，预测被掩盖的词。</p>
+<p> <strong>（2）Next Sentence Prediction（NSP）</strong>： 判断两个句子是否连续。</p>
 </li>
-<li><p><strong>特点：</strong></p>
-<p> <strong>（1）双向上下文：</strong> 同时从左右两个方向建模。</p>
-<p> <strong>（2）通用性强：</strong> 预训练后可以通过微调应用于多种 NLP 任务。</p>
+<li><p><strong>特点</strong>：</p>
+<p> <strong>（1）双向上下文</strong>： 同时从左右两个方向建模。</p>
+<p> <strong>（2）通用性强</strong>： 预训练后可以通过微调应用于多种 NLP 任务。</p>
 </li>
 </ol>
 <h2 id="6-transformer的KV缓存机制"><a href="#6-transformer的KV缓存机制" class="headerlink" title="6. transformer的KV缓存机制"></a>6. transformer的KV缓存机制</h2><h3 id="6-1-为什么transformer要做KV缓存？"><a href="#6-1-为什么transformer要做KV缓存？" class="headerlink" title="6.1 为什么transformer要做KV缓存？"></a><strong>6.1 为什么transformer要做KV缓存？</strong></h3><p>transformer的token是逐个生成的，每次新的预测会基于之前所有token信息进行矩阵运算，这样会使处理速度随数据顺序逐渐降低，复杂度和耗时度增加。KV缓存就是减少这种耗时的矩阵运算，在transformer推理过程中进行缓存，在生成后续token时直接访问缓存，无需重复计算，提高效率。</p>
